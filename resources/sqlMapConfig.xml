@@ -14,5 +14,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <typeAlias type="com.house.bean.SystemBean" alias="systemBean"/>
         <typeAlias type="com.house.bean.BulidingBean" alias="bulidingBean"/>
     </typeAliases>
-	    
+	
+    <plugin interceptor="com.huaqin.fcstrp.interceptor.PagePlugin">
+			<property name="dialect" value="mysql" />
+			<property name="pageSqlId" value=".*\.query.*" />
+	</plugin>
+    
+    	    
 </configuration>
