@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.house.dao.SystemDao">
+	<select id="querySystemInfo" resultType="systemBean"
+		parameterType="HashMap">
+		select
+		s.s_id id,
+		s.s_code code,
+		s.s_content content,
+		s.flag flag
+		from h_system s
+		where s.s_flag = #{flag}
+		and s.s_code = #{code}
+	</select>
+
+	<select id="getSystemInfoCount" parameterType="HashMap" resultType="Integer">
+		select
+			count(1)
+		from h_system s
+		where s.s_flag = #{flag}
+		and s.s_code = #{code}	
+	</select>
+
+	<delete id="delete" parameterType="HashMap">
+		delete
+		from h_system
+		where s_id = #{id}
+	</delete>
+
+	<update id="update" parameterType="HashMap">
+		update h_system
+		set s_flag = #{flag}
+		where s_id = #{id}
+	</update>
+
+	<insert id="insert" parameterType="HashMap">
+		insert into h_system(s_code, s_content)
+		values (#{code}, #{content})
+	</insert>
+	
+</mapper>

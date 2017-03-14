@@ -80,3 +80,5 @@ tr{
 	
 	margin-left:30px;
 }
+
+html { overflow-x: hidden; overflow-y: auto; } 

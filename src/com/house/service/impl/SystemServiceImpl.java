@@ -5,14 +5,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.house.dao.UserDao;
-import com.house.service.UserService;
+import com.house.dao.SystemDao;
+import com.house.service.SystemService;
 
-@Service("userServiceImpl")
-public class UserServiceImpl implements UserService{
+@Service("systemServiceImpl")
+public class SystemServiceImpl implements SystemService {
 
 	@Autowired
-	private UserDao userDao;
+	private SystemDao systemDao;
 	
 	@Override
 	public void insert(Map<String, String> queryMap) throws Exception {
@@ -25,5 +25,5 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void delete(Map<String, String> queryMap) throws Exception {
 	}
-	
+
 }

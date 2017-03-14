@@ -1,13 +1,12 @@
-package com.house.dao;
+package com.house.service;
 
 import java.util.Map;
 
-import com.house.bean.UserBean;
+public interface SystemService {
 
-public interface UserDao {
-	
 	/**
 	 * 新增
+	 * 
 	 * @param queryMap
 	 * @throws Exception
 	 */
@@ -15,17 +14,18 @@ public interface UserDao {
 
 	/**
 	 * 更新
+	 * 
 	 * @param queryMap
 	 * @throws Exception
 	 */
 	void update(Map<String, String> queryMap) throws Exception;
-	
+
 	/**
 	 * 删除
+	 * 
 	 * @param queryMap
 	 * @throws Exception
 	 */
 	void delete(Map<String, String> queryMap) throws Exception;
-	
-	
+
 }

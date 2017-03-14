@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.house.dao.MessageDao">
+	
+	<select id="queryMessageInfo" resultType="messageBean"
+		parameterType="HashMap">
+		select
+			m.m_id id,
+			m.m_content content,
+			m.u_id uid,
+			m.u_username username,
+			m.u_type type,
+			date_format(m.m_createtime,'%y-%m-%d %H:%i:%s') createtime
+		from h_message m
+		left join h_user u on u.u_id = m.u_id
+		where m.m_flag = #{flag}
+	</select>	
+	
+	<select id="getMessageInfoCount" parameterType="HashMap" resultType="Integer">
+		select
+			count(1)
+		from h_message s
+		where s.m_flag = #{flag}
+	</select>
+
+	<delete id="delete" parameterType="HashMap">
+		delete
+		from h_message
+		where m_id = #{id}
+	</delete>
+
+	<update id="update" parameterType="HashMap">
+		update h_message
+		set m_flag =
+		#{flag}
+		where m_id = #{id}
+	</update>
+
+
+	<insert id="insert" parameterType="HashMap">
+		insert into
+		h_message(m_content, u_id, m_createtime)
+		values (#{content}, #{uid},
+		CURRENT_TIMESTAMP())
+	</insert>
+</mapper>

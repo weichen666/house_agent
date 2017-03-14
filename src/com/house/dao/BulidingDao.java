@@ -2,10 +2,7 @@ package com.house.dao;
 
 import java.util.Map;
 
-import com.house.bean.UserBean;
-
-public interface UserDao {
-	
+public interface BulidingDao {
 	/**
 	 * 新增
 	 * @param queryMap
@@ -26,6 +23,4 @@ public interface UserDao {
 	 * @throws Exception
 	 */
 	void delete(Map<String, String> queryMap) throws Exception;
-	
-	
 }

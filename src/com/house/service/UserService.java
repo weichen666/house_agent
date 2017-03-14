@@ -5,25 +5,29 @@ import java.util.Map;
 import com.house.bean.UserBean;
 
 public interface UserService {
-	
+
 	/**
-	 * 获取用户
+	 * 新增
+	 * 
 	 * @param queryMap
-	 * @return 
+	 * @throws Exception
 	 */
-	UserBean getUser(Map<String, String> queryMap) throws Exception;
-	
+	void insert(Map<String, String> queryMap) throws Exception;
+
 	/**
-	 * 保存
+	 * 更新
+	 * 
 	 * @param queryMap
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	void save(Map<String, String> queryMap) throws Exception;
-	
+	void update(Map<String, String> queryMap) throws Exception;
+
 	/**
-	 * 登录
+	 * 删除
+	 * 
 	 * @param queryMap
+	 * @throws Exception
 	 */
-	void login(Map<String, String> queryMap) throws Exception;
+	void delete(Map<String, String> queryMap) throws Exception;
 
 }

@@ -1,10 +1,8 @@
-package com.house.dao;
+package com.house.service;
 
 import java.util.Map;
 
-import com.house.bean.UserBean;
-
-public interface UserDao {
+public interface MessageService {
 	
 	/**
 	 * 新增
@@ -26,6 +24,8 @@ public interface UserDao {
 	 * @throws Exception
 	 */
 	void delete(Map<String, String> queryMap) throws Exception;
+	
+	
 	
 	
 }

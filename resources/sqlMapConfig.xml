@@ -10,11 +10,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAliases>
         <!-- 批量扫描别名 -->
         <typeAlias type="com.house.bean.UserBean" alias="userBean"/>
+        <typeAlias type="com.house.bean.MessageBean" alias="messageBean"/>
+        <typeAlias type="com.house.bean.SystemBean" alias="systemBean"/>
+        <typeAlias type="com.house.bean.BulidingBean" alias="bulidingBean"/>
     </typeAliases>
-
-    <!-- 配置mapper
-     由于使用spring和mybatis的整合包进行整合，这了无需配置
-     但必须遵循：mapper.xml和mapper.xml文件同名且在同一目录-->
-    <!--<mappers></mappers>  -->
-    
+	    
 </configuration>

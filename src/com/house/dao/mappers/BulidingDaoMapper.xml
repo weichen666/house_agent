@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.house.dao.BulidingDao" >
+	
+	<select id="queryBulidingInfo" parameterType="HashMap" resultType="bulidingBean">
+		select 
+			b_id id,
+			b_title title,
+			b_content content,
+			b_price price,
+			b_size size,
+			b_location location,
+			b_type type,
+			date_format(b_createtime,'%y-%m-%d %H:%i:%s') createtime,
+			b_photo photo,
+			b_flag flag
+		from h_buliding u
+		where 1 = 1
+		left join h_user u on u.u_id = b.u_id 
+		<if test="map.flag != null and map.flag != ''">
+			and b_flag = #{map.flag}
+		</if>
+		<if test="map.title != null and map.title != ''">
+			and b_title like '%' || #{map.title} || '%'
+		</if>
+		<if test="map.type != null and map.type != ''">
+			and b_type = #{map.type}
+		</if>
+	
+	</select>
+	
+	<select id="getBulidingInfoCount" parameterType="HashMap" resultType="Integer">
+		select
+			count(1)
+		from h_buliding 
+		where 1 = 1
+		<if test="map.flag != null and map.flag != ''">
+			and b_flag = #{map.flag}
+		</if>
+		<if test="map.title != null and map.title != ''">
+			and b_title like '%' || #{map.title} || '%'
+		</if>
+		<if test="map.type != null and map.type != ''">
+			and b_type = #{map.type}
+		</if>
+	</select>
+	
+	<insert id="insert" parameterType="HashMap">
+		insert into h_buliding
+		(b_title, b_content, b_price, b_size, b_location, b_type
+		, b_createtime, u_id, b_photo)
+		values
+		(#{title}, #{content}, #{price}, #{size}
+		, #{location}, #{type}, now(), #{uid}, #{photo})
+	</insert>
+	
+	<delete id="delete" parameterType="HashMap">
+		delete
+		from h_buliding
+		where b_id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="HashMap">
+		update h_buliding 
+		set b_title = #{title},
+			b_content = #{content},
+			b_price = #{price},
+			b_size = #{size},
+			b_location = #{location},
+			b_type = #{type},
+			b_updatetime = now(),
+			b_photo = #{photo}
+		where b_id = #{id}
+	</update>
+	
+</mapper>

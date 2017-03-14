@@ -37,7 +37,6 @@ public class UserController {
 		jsonObject.put("status", "S");
 		try
 		{
-			userBean = userService.getUser(queryMap);
 		}catch (Exception ex) {
 			jsonObject.put("status", "F");
 			jsonObject.put("msg", ex.getMessage());
@@ -65,8 +64,6 @@ public class UserController {
 		
 		jsonObject.put("status", "S");
 		try{
-			userService.login(queryMap);
-			request.getSession().setAttribute("userBean", userService.getUser(queryMap));
 		}catch (Exception ex) {
 			jsonObject.put("status", "F");
 			jsonObject.put("msg", ex.getMessage());
@@ -86,16 +83,11 @@ public class UserController {
 		
 		jsonObject.put("status", "S");
 		try{
-			userService.save(queryMap);
 		}catch (Exception ex) {
 			jsonObject.put("status", "F");
 			jsonObject.put("msg", ex.getMessage());
 		}
 		
-		
 		return jsonObject;
 	}
-	
-	
-	
 }

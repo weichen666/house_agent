@@ -2,10 +2,12 @@ package com.house.dao;
 
 import java.util.Map;
 
-import com.house.bean.UserBean;
+/**
+ * 系统设置
+ * @author TrueBt
+ */
+public interface SystemDao {
 
-public interface UserDao {
-	
 	/**
 	 * 新增
 	 * @param queryMap

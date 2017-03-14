@@ -5,25 +5,35 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.house.dao.UserDao;
-import com.house.service.UserService;
+import com.house.dao.BulidingDao;
+import com.house.service.BulidingService;
 
-@Service("userServiceImpl")
-public class UserServiceImpl implements UserService{
+/**
+ * 房屋信息
+ * @author TrueBt
+ *
+ */
+@Service("bulidingServiceImpl")
+public class BulidingServiceImpl implements BulidingService {
 
 	@Autowired
-	private UserDao userDao;
+	private BulidingDao bulidingDao;
 	
 	@Override
 	public void insert(Map<String, String> queryMap) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void update(Map<String, String> queryMap) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void delete(Map<String, String> queryMap) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
-	
 }
